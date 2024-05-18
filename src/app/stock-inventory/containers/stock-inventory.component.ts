@@ -15,10 +15,12 @@ import {FormControl, FormGroup, FormArray} from '@angular/forms';
             <input formControlName="branch" class="uk-input" id="form-stacked-text" type="text" placeholder="Branch id">
           </div>
         </div>
+<!--        TODO: This is a new todo-->
         <div class="uk-margin">
           <label class="uk-form-label" for="form-stacked-text">Manager Code</label>
           <div class="uk-form-controls">
-            <input formControlName="code" class="uk-input" id="form-stacked-text" type="text" placeholder="Manager Code">
+            <input formControlName="code" class="uk-input" id="form-stacked-text" type="text"
+                   placeholder="Manager Code">
           </div>
         </div>
       </div>
@@ -41,7 +43,7 @@ import {FormControl, FormGroup, FormArray} from '@angular/forms';
         </div>
       </div>
       <button class="uk-button uk-button-primary" type="submit" [disabled]="form.invalid">Order stock</button>
-      <pre>{{form.value | json}}</pre>
+      <pre>{{ form.value | json }}</pre>
     </form>
   `
 })

@@ -8,13 +8,20 @@ import {FormControl, FormGroup, FormArray} from '@angular/forms';
     <h1 class="uk-margin-top">Computer Inventory</h1>
     <form class="uk-form-stacked" [formGroup]="form" (ngSubmit)="onSubmit()">
 
+      <stock-branch
+      [parent]="form"
+      ></stock-branch>
+
+      <stock-selector
+      [parent]="form"
+      ></stock-selector>
+
+      <stock-products
+      [parent]="form"
+      ></stock-products>
+
       <div formGroupName="store">
-        <div class="uk-margin">
-          <label class="uk-form-label" for="form-stacked-text">Branch id</label>
-          <div class="uk-form-controls">
-            <input formControlName="branch" class="uk-input" id="form-stacked-text" type="text" placeholder="Branch id">
-          </div>
-        </div>
+
 
         <div class="uk-margin">
           <label class="uk-form-label" for="form-stacked-text">Manager Code</label>
@@ -25,15 +32,7 @@ import {FormControl, FormGroup, FormArray} from '@angular/forms';
         </div>
       </div>
 
-      <div class="uk-margin">
-        <label class="uk-form-label" for="form-stacked-select">Select</label>
-        <div class="uk-form-controls">
-          <select class="uk-select" id="form-stacked-select">
-            <option>Option 01</option>
-            <option>Option 02</option>
-          </select>
-        </div>
-      </div>
+
 
       <div class="uk-margin">
         <div class="uk-form-label">Radio</div>
@@ -51,9 +50,14 @@ import {FormControl, FormGroup, FormArray} from '@angular/forms';
 export class StockInventoryComponent {
   form = new FormGroup({
     store: new FormGroup({
-      branch: new FormControl('321'),
-      code: new FormControl('fds')
-    })
+      branch: new FormControl(''),
+      code: new FormControl('')
+    }),
+    selector: new FormGroup({
+      product_id: new FormControl(''),
+      quantity: new FormControl(10)
+    }),
+    stock: new FormArray([])
   })
 
   onSubmit() {

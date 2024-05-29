@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 
 @Component({
@@ -14,6 +14,9 @@ import {FormGroup} from '@angular/forms';
   `
 })
 
-export class StockBranchComponent {
+export class StockBranchComponent implements OnInit{
   @Input() parent: FormGroup = new FormGroup({});
+  ngOnInit() {
+    console.log(this.parent)
+  }
 }

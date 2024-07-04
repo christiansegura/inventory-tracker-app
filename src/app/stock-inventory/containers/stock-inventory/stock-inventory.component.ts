@@ -10,11 +10,11 @@ import {Product} from '../../models/product.interface';
     <form class="uk-form-stacked" [formGroup]="form" (ngSubmit)="onSubmit()">
 
       <stock-branch
-      [parent]="form"
+      [parent]="form.controls.store"
       ></stock-branch>
 
       <stock-selector
-      [parent]="form"
+      [parent]="form.controls.selector"
       [products]="products"
       ></stock-selector>
 
@@ -41,7 +41,7 @@ import {Product} from '../../models/product.interface';
         </div>
       </div>
       <button class="uk-button uk-button-primary" type="submit" [disabled]="form.invalid">Order stock</button>
-      <pre>{{ form.value | json }}</pre>
+
     </form>
   `
 })
@@ -62,6 +62,7 @@ export class StockInventoryComponent {
       code: new FormControl('')
     }),
     selector: new FormGroup({
+      product: new FormControl(''),
       product_id: new FormControl(''),
       quantity: new FormControl(10)
     }),

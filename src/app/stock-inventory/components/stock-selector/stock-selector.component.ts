@@ -7,7 +7,7 @@ import {Product} from '../../models/product.interface';
   styleUrls: ['stock-selector.component.scss'],
   template:`
     <div class="uk-margin" [formGroup]="parent">
-      <div formGroupName="selector">
+      <div>
       <label class="uk-form-label" for="form-stacked-select">Products</label>
       <div class="uk-form-controls">
         <select formControlName="product" class="uk-select" id="form-stacked-select">
